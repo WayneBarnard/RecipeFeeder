@@ -1,0 +1,11 @@
+<div class="mt-5 font-bold">
+    Previous Results
+</div>
+@for (item of prevResults | keyvalue; track $index) {
+    <div class="mt-3">
+        Date of calculation: {{item.key | date: 'yyyy-MM-dd H:m:ss'}}
+    </div>
+    <div>
+        Amount of people can be fed: {{item.value}}
+    </div>
+}

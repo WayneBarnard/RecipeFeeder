@@ -1,0 +1,17 @@
+<div class="mt-5 ml-3 mr-3">
+  Number of people that can be fed results: {{recipeService.totalAmount}}
+</div>
+<div class="mt-5 ml-3 mr-3">
+  <b class="mb-2">Food items that can be made:</b>
+  @for (item of recipeService.results | keyvalue; track $index) {
+    <div class="italic">
+      {{item.key}}
+    </div>
+    <div>
+      Amount of item: {{item.value}}
+    </div>
+    <div class="mb-3">
+      Amount that can be fed: {{item.value * recipeService.recipeFeeds[item.key]}}
+    </div>
+  }
+</div>

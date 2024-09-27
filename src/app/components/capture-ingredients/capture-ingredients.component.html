@@ -1,0 +1,17 @@
+<div class="mt-5 h-full mb-5">
+  <form [formGroup]="captureIngredientsForm" (ngSubmit)="saveIngredients()" class="h-full">
+    <div class="columns-3">
+      @for (ingredient of ingredientKeys; track ingredient) {
+      <mat-form-field class="w-full mb-4">
+        <mat-label>{{ingredient}}</mat-label>
+        <input matInput [formControlName]="ingredient" [id]="ingredient" placeholder="Enter amount" type="number" />
+        <mat-error
+          *ngIf="captureIngredientsForm.get(ingredient)?.hasError('required')">
+          {{ingredient}} is required
+        </mat-error>
+      </mat-form-field>
+      }
+    </div>
+    <button mat-flat-button class="w-full mt-4" type="submit">Calculate</button>
+  </form>
+</div>
